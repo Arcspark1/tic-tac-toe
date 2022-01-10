@@ -8,3 +8,23 @@ html {
     border: 0;
     box-sizing: border-box;
 }
+body{
+    padding-left: 50rem;
+    padding-right: 50rem;
+    height: 100vh;
+}
+.board{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 40vw;
+    gap: 1rem;
+
+}
+
+.board > div{
+    background-color: aqua;
+    height: 30rem;
+    flex: 0 0 32%;
+    
+}
