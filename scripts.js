@@ -7,7 +7,7 @@ const gameBoard = (() => {
         let cellId = this.classList.item(0);
         cellId = cellId.replace("cell-", "");
         console.log(cellId);
-        update_cell(`${cellId}`, "x");
+        update_cell(`${cellId}`, "o");
     }        
         
     //for loop to generate the cell elements in the board section
@@ -30,3 +30,7 @@ const gameBoard = (() => {
 
     return{board, update_cell};
 })();
+
+const playerFactory = (id, symbol) => {
+    return {id, symbol};
+};
