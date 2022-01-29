@@ -2,12 +2,13 @@ const gameBoard = (() => {
     const board_section = document.querySelector(".board");
     const board = [];
 
-
+    ///Clicked cell function to be used as an onclick function to each cell, calls the update cell function to update the board array aswell as the 
+    ///text content of the cell.
     const clickedCell = function() {
-        let cellId = this.classList.item(0);
-        cellId = cellId.replace("cell-", "");
-        console.log(cellId);
-        updateCell(`${cellId}`, "x");
+        const cellId = this.classList.item(0);
+        newCellId = cellId.replace("cell-", "");
+        console.log(playerTurn);
+        updateCell(`${newCellId}`);
     }        
         
     //for loop to generate the cell elements in the board section
@@ -20,7 +21,7 @@ const gameBoard = (() => {
         board[i] = "";
     }
 
-    ///Check Win Condition
+    ///Predetermined win conditions
     const winConditions = [
         [0,1,2],
         [3,4,5],
@@ -58,15 +59,24 @@ const gameBoard = (() => {
 
     //Updates The cell based on index and what symbol either "x" or "o"
     // adds the symbol to the array, and adds the symbol to the text content
-    const updateCell = (index, symbol) => {
+    
+    ///player count variable to indicate which symbol to use, odds for "o" even for "x"
+    let playerTurn = 1;
+
+    const updateCell = (index) => {
+        if (playerTurn % 2 === 1) {
+            symbol = "o";
+        } else {
+            symbol ="x";
+        }
         board[index] = symbol;
         const selected_cell = document.querySelector(`.cell-${index}`);
-        selected_cell.textContent = `${symbol}`;
+        if (selected_cell.textContent === ""){
+            selected_cell.textContent = `${symbol}`;
+            playerTurn += 1;
+        }
     }
 
     return{board, updateCell, checkWinCondition};
 })();
 
-const playerFactory = (id, symbol) => {
-    return {id, symbol};
-};
