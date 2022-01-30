@@ -12,6 +12,7 @@ body{
     padding-left: 50rem;
     padding-right: 50rem;
     height: 100vh;
+    gap: 2rem;
 }
 #boardContainer {
     display: flex;
@@ -34,13 +35,9 @@ body{
     background-color: aqua;
 }
 
-.players {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 20%;
-    margin-right: 20%;
+.resetGame {
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-top: 5rem;
 }
 
-form > label{
-    font-size: 5rem;
-}
